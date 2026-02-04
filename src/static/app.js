@@ -428,10 +428,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Apply difficulty filter
+      // Per requirements: "All" option shows only activities WITHOUT difficulty (i.e., "for all levels")
       // If "All" is selected (empty string), show only activities WITHOUT difficulty
       // If a specific difficulty is selected, show only activities WITH that difficulty
       if (currentDifficulty === "") {
-        // "All" option: show only activities with no difficulty field
+        // "All" option: show only activities with no difficulty field (these are "for all levels")
         if (details.difficulty) {
           return;
         }
