@@ -32,6 +32,40 @@
   --info-light: #d1ecf1;
 }
 
+/* Dark mode colors */
+body.dark-mode {
+  /* Primary colors - slightly adjusted for dark mode */
+  --primary: #5c6bc0;
+  --primary-light: #8e99f3;
+  --primary-dark: #26418f;
+  --primary-text: #ffffff;
+
+  /* Secondary colors */
+  --secondary: #ff9800;
+  --secondary-light: #ffc947;
+  --secondary-dark: #c66900;
+  --secondary-text: #000000;
+
+  /* Neutral colors - dark theme */
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --border: #333333;
+  --border-light: #2a2a2a;
+  --border-focus: #444444;
+
+  /* Feedback colors - adjusted for dark backgrounds */
+  --success: #4caf50;
+  --success-light: #1b5e20;
+  --warning: #ff9800;
+  --warning-light: #4d3800;
+  --error: #f44336;
+  --error-light: #5d1f1a;
+  --info: #2196f3;
+  --info-light: #0d3c61;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -203,6 +237,34 @@ section h3 {
   border-radius: 10px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+}
+
+/* Difficulty Badge */
+.difficulty-badge {
+  position: absolute;
+  top: 28px;
+  right: 8px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.difficulty-beginner {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.difficulty-intermediate {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.difficulty-advanced {
+  background: #ffebee;
+  color: #c62828;
 }
 
 /* Capacity Indicator */
@@ -539,7 +601,8 @@ footer {
 
 .category-filters,
 .day-filters,
-.time-filters {
+.time-filters,
+.difficulty-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -547,7 +610,8 @@ footer {
 
 .category-filter,
 .day-filter,
-.time-filter {
+.time-filter,
+.difficulty-filter {
   background-color: var(--background);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -560,7 +624,8 @@ footer {
 
 .category-filter.active,
 .day-filter.active,
-.time-filter.active {
+.time-filter.active,
+.difficulty-filter.active {
   background-color: var(--primary);
   color: white;
   border-color: var(--primary-dark);
@@ -568,7 +633,8 @@ footer {
 
 .category-filter:hover,
 .day-filter:hover,
-.time-filter:hover {
+.time-filter:hover,
+.difficulty-filter:hover {
   background-color: var(--primary-light);
   color: white;
 }
@@ -617,6 +683,9 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #user-status {
@@ -743,4 +812,36 @@ footer {
   font-size: 0.9rem;
   font-weight: bold;
   line-height: 1;
+/* Theme toggle button */
+#theme-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 480px) {
+  #theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  #user-controls {
+    gap: 5px;
+  }
 }
